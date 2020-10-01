@@ -3,6 +3,8 @@ var gamePattern = []
 var userClickedPattern = []
 var level = 0
 
+// MAIN GAME
+
 function nextSequence() {
   userClickedPattern = []
   level = level + 1;
@@ -26,10 +28,14 @@ function animatePress(currentColor) {
   }, 100)
 }
 
+// PLAY SOUND
+
 function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3")
   audio.play()
 }
+
+// CHECK ANSWER
 
 function checkAnswer(currentLevel) {
   if(gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
@@ -49,11 +55,15 @@ function checkAnswer(currentLevel) {
   }
 }
 
+// START AGAIN
+
 function startOver() {
   level = 0
   gameBegin = false
   gamePattern = []
 }
+
+// ON CLICK ON THE BUTTON
 
 $(".btn").on("click", function(event) {
   var userChosenColor = this.id
